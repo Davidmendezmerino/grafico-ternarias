@@ -108,8 +108,12 @@ def plot_ternary_scatter(
         linewidths=0.5,
     )
 
-    # Configure ticks and labels
-    tax.ticks(axis="lbr", linewidth=1, multiple=0.2, offset=0.02, fontsize=10)
+    # Configure ticks and labels with logarithmic-style values from 10^3 to 10^9
+    exponents = range(3, 10)
+    tick_positions = np.linspace(0.0, 1.0, num=len(exponents))
+    tick_labels = [fr"$10^{{{exp}}}$" for exp in exponents]
+    custom_ticks = list(zip(tick_positions, tick_labels))
+    tax.ticks(axis="lbr", ticks=custom_ticks, linewidth=1, offset=0.02, fontsize=10)
     tax.left_axis_label("Molécula A", offset=0.12, fontsize=12)
     tax.right_axis_label("Molécula B", offset=0.12, fontsize=12)
     tax.bottom_axis_label("Molécula C", offset=0.12, fontsize=12)
