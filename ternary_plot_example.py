@@ -112,7 +112,7 @@ def plot_ternary_scatter(
     tax.ticks(axis="lbr", linewidth=1, multiple=0.2, offset=0.02, fontsize=10)
     tax.left_axis_label("Molécula A", offset=0.12, fontsize=12)
     tax.right_axis_label("Molécula B", offset=0.12, fontsize=12)
-    tax.top_axis_label("Molécula C", offset=0.12, fontsize=12)
+    tax.bottom_axis_label("Molécula C", offset=0.12, fontsize=12)
 
     # Add a colorbar that maps predictions to colors
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=min(predictions), vmax=max(predictions)))
